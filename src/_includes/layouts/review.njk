@@ -1,0 +1,62 @@
+---
+layout: layouts/base.njk
+---
+<article class="review">
+  <header class="review-header">
+    <span class="review-category">{{ category }}</span>
+    <h1 class="review-title">{{ title }}</h1>
+    {% if brand %}<p class="review-brand">{{ brand }}</p>{% endif %}
+    <div class="review-meta">
+      <span class="review-rating" title="{{ rating }} out of 5">{{ rating | stars }}</span>
+      <time datetime="{{ date | isoDate }}">{{ date | dateFormat }}</time>
+    </div>
+  </header>
+
+  {% if specs %}
+  <div class="review-specs">
+    <h2>Specs</h2>
+    <dl>
+      {% for key, value in specs %}
+      <dt>{{ key }}</dt>
+      <dd>{{ value }}</dd>
+      {% endfor %}
+    </dl>
+  </div>
+  {% endif %}
+
+  <div class="review-content prose">
+    {{ content | safe }}
+  </div>
+
+  <div class="review-summary">
+    {% if pros %}
+    <div class="pros">
+      <h3>Pros</h3>
+      <ul>
+        {% for pro in pros %}
+        <li>{{ pro }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if cons %}
+    <div class="cons">
+      <h3>Cons</h3>
+      <ul>
+        {% for con in cons %}
+        <li>{{ con }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="review-verdict">
+    <h3>Verdict</h3>
+    <p class="verdict-rating"><strong>{{ rating | stars }}</strong> ({{ rating }}/5)</p>
+    {% if verdict %}
+    <p>{{ verdict }}</p>
+    {% endif %}
+  </div>
+</article>

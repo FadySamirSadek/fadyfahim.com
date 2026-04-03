@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+<section class="hero">
+  <h1>Hi, I'm {{ site.author.name }}</h1>
+  <p class="hero-subtitle">{{ site.description }}</p>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Recent Posts</h2>
+  <div class="posts-grid">
+    {% set recentPosts = collections.allPosts | head(6) %}
+    {% for post in recentPosts %}
+    <article class="post-card">
+      <span class="post-type">{% if '/blog/' in post.url %}Dev{% else %}Adventure{% endif %}</span>
+      <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+      <time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat }}</time>
+      <p>{{ post.data.excerpt or (post.templateContent | excerpt) }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+

@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+---
+<article class="project-page">
+  <header class="project-header">
+    <h1 class="project-title">{{ title }}</h1>
+    {% if tech %}
+    <div class="tech-stack">
+      {% for item in tech %}
+      <span class="tech-tag">{{ item }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="project-links">
+      {% if github %}<a href="{{ github }}" class="btn">GitHub</a>{% endif %}
+      {% if live %}<a href="{{ live }}" class="btn btn-primary">Live Site</a>{% endif %}
+    </div>
+  </header>
+
+  <div class="project-content prose">
+    {{ content | safe }}
+  </div>
+</article>

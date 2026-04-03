@@ -1,0 +1,15 @@
+{# Usage: {% include "partials/gallery.njk" %} with photos array in frontmatter #}
+{% if photos %}
+<div class="photo-gallery">
+  {% for photo in photos %}
+  <figure class="gallery-item">
+    <a href="{{ photo.src }}" class="lightbox-link" data-caption="{{ photo.caption }}">
+      <img src="{{ photo.src }}" alt="{{ photo.alt or photo.caption }}" loading="lazy">
+    </a>
+    {% if photo.caption %}
+    <figcaption>{{ photo.caption }}</figcaption>
+    {% endif %}
+  </figure>
+  {% endfor %}
+</div>
+{% endif %}

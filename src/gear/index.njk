@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Gear Reviews
+description: Honest reviews of hiking and outdoor gear
+---
+<h1>Gear Reviews</h1>
+<p class="page-intro">Honest reviews of gear I actually use on the trail.</p>
+
+<div class="posts-list">
+  {% for review in collections.gear %}
+  <article class="post-item">
+    <h2><a href="{{ review.url }}">{{ review.data.title }}</a></h2>
+    <time datetime="{{ review.date | isoDate }}">{{ review.date | dateFormat }}</time>
+    <p>{{ review.data.excerpt or (review.templateContent | excerpt) }}</p>
+  </article>
+  {% else %}
+  <p>No reviews yet. Check back soon!</p>
+  {% endfor %}
+</div>

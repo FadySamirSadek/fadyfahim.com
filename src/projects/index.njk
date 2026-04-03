@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+title: Projects
+description: Software projects and side work
+---
+<h1>Projects</h1>
+<p class="page-intro">Software projects and things I've built.</p>
+
+<div class="projects-grid projects-page-grid">
+  {% for project in collections.projects %}
+  <article class="project-card">
+    <h2><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+    <p>{{ project.data.description }}</p>
+    {% if project.data.tech %}
+    <div class="tech-stack">
+      {% for item in project.data.tech %}
+      <span class="tech-tag">{{ item }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="project-links">
+      {% if project.data.github %}<a href="{{ project.data.github }}" class="link-github">GitHub</a>{% endif %}
+      {% if project.data.live %}<a href="{{ project.data.live }}" class="link-live">Live</a>{% endif %}
+    </div>
+  </article>
+  {% else %}
+  <p>No projects yet. Check back soon!</p>
+  {% endfor %}
+</div>

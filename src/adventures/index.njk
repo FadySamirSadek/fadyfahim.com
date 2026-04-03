@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+title: Adventures
+description: Trip reports, hiking, and outdoor explorations
+---
+<h1>Adventures</h1>
+<p class="page-intro">Trip reports, hiking, and outdoor explorations.</p>
+
+<div class="posts-list">
+  {% for post in collections.adventures %}
+  <article class="post-item adventure-item">
+    <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+    <time datetime="{{ post.date | isoDate }}">{{ post.date | dateFormat }}</time>
+    {% if post.data.location %}
+    <span class="location">{{ post.data.location }}</span>
+    {% endif %}
+    <p>{{ post.data.excerpt or (post.templateContent | excerpt) }}</p>
+  </article>
+  {% else %}
+  <p>No adventures yet. Check back soon!</p>
+  {% endfor %}
+</div>

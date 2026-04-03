@@ -1,0 +1,15 @@
+{
+  "title": "Fady Fahim",
+  "description": "Software developer, mountain lover, and outdoor enthusiast. Writing about code, trails, and everything in between.",
+  "url": "https://fadyfahim.com",
+  "author": {
+    "name": "Fady Fahim",
+    "email": "hello@fadyfahim.com"
+  },
+  "social": {
+    "github": "https://github.com/FadySamirSadek",
+    "linkedin": "https://www.linkedin.com/in/fadysamirsadek/",
+    "strava": "https://www.strava.com/athletes/99959994",
+    "twitter": "https://x.com/realfadyfahim"
+  }
+}
